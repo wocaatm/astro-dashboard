@@ -9,4 +9,6 @@ export interface ListItem {
   index: number
   ownerAddress: string,
   point: string
+  asterix: string | null
+  power: string | null
 }
