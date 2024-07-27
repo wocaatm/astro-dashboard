@@ -8,7 +8,7 @@ async function fetchSummary() {
     method: 'GET',
     headers: {accept: 'application/json'}
   }
-  const data = await fetch(`http://13.229.69.234:4000/dashboard/summary`, options).then(response => response.json())
+  const data = await fetch(`https://asterixlabs.top/dashboard/summary`, options).then(response => response.json())
   return data.result || {}
 }
 
@@ -18,7 +18,7 @@ async function fetchList() {
     method: 'GET',
     headers: {accept: 'application/json'}
   }
-  const data = await fetch(`http://13.229.69.234:4000/dashboard/list`, options).then(response => response.json())
+  const data = await fetch(`https://asterixlabs.top/dashboard/list`, options).then(response => response.json())
   return data.result || []
 }
 
