@@ -119,7 +119,7 @@ const DashboardPage: React.FC = () => {
           {
             currentList.length > 0 ? <ul>
               {currentList.map((item) => (
-                <li key={item.index} className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-2 border-b last:border-b-0">
+                <li key={item.index} className="flex flex-row justify-between items-start items-center py-2 border-b last:border-b-0">
                   <div className="mb-1 sm:mb-0">
                     <span className="font-semibold mr-2">{item.index}.</span>
                     <span className="text-gray-600">{item.shortAddress.toLowerCase()}</span>
