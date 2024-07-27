@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useMemo, useState } from 'react';
 import { ListItem, SummaryData } from './types';
+import dayjs from 'dayjs';
 
 // 获取总结数据
 async function fetchSummary() {
@@ -25,6 +26,7 @@ async function fetchList() {
 const pageSize = 50
 const DashboardPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [updateTime, setUpdateTime] = useState('')
   const [summaryData, setSummaryData] = useState<SummaryData>({
     totalPoint: 0,
     totalPower: 0,
@@ -66,6 +68,8 @@ const DashboardPage: React.FC = () => {
           index: index + 1
         }
       }))
+      const updateTime = data[0]?.valueUpdateTime
+      setUpdateTime(dayjs(updateTime).format('YYYY-MM-DD HH:mm'))
     }
 
     querySummery()
@@ -84,7 +88,11 @@ const DashboardPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">$Astro Dashboard</h1>
+        <h1 className="text-3xl font-bold">
+          $Astro Dashboard
+        </h1>
+        
+        {updateTime && <p className='my-4'>update time: { updateTime } (update 6 hours each)</p>}
         
         {/* Summary Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
